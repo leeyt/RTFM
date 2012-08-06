@@ -10,7 +10,7 @@ RTFM？ 那是什麼？ 可以吃嗎？
 
 問各個目錄是啥意思總該可以吧？
 -------------------------
-* blog：[Xi Top](http://xitop.blogspot.com)的 markdown 原始檔
+* blog：[Xi Top](http://xitop.blogspot.com) 的 markdown 原始檔
 * src：一些沒啥用處的簡短 code
 * wiki：隨手紀錄，不保證內容可信度
 
