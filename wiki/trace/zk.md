@@ -18,6 +18,16 @@ flex 機制
 `setHeight()` 邏輯雷同。
 
 ### `hflex="min"` 流程 ###
+`this._nhflex` 的值取決於 `hflex` 的設定值（`setHFlex_`）：
+
+*	true:1
+*	min：-65500
+*	負數：0
+
+接著作 `_listenFlex(this)`。`_listenFlex()` 只會作一次，
+主要是註冊 onSize（zFlex.onSize）、beforeSize（zFlex.beforeSize），
+因為 hflex="min" 會加跑 `listenOnFitSize_()`（反之則跑 `unlistenOnFitSize_()`）。
+
 *	this._nhflex = -65500
 *	註冊 listen
 	*	在 `_listenFlex()`，onSzie : zFlex.onSize
@@ -25,17 +35,20 @@ flex 機制
 	*	在 `widget.listenOnFitSize()`，onFitSize : zFlex.onFitSize
 
 以實驗結果來看，會先執行
+
 1.	beforeSize
 1.	onFitSize→_fixMinHflex()→_fixMinVflex()
 	* 理論上跑完這個 method，大小會調整好
 1.	onSize→fixFlex
 	* 這個又臭又長的就不知道是在幹啥了......
 
-`this._nhflex` 的值取決於 `hflex` 的設定值（`setHFlex_`）：
-*	true:1
-*	min：-65500
-*	負數：0
 
-除非 hflex 設定為負數（先不考慮），不然會作 `_listenFlex(this)`。
-`_listenFlex()` 只會作一次，主要是註冊 onSize（zFlex.onSize）、beforeSize（zFlex.beforeSize），
-如果設定為 min 則跑 listenOnFitSize_()、反之則跑 unlistenOnFitSize_()。
+flex.js
+=======
+### _fixMinVflex() ###
+如果有給 min
+（也就是 `fixMinFlex()` 當中 `wgt.beforeMinFlex_()` 有回傳值、可是 `widget.beforeMinFlex_()` 並沒有寫任何東西，
+也就是說是實際計算大小的 widget 必須覆寫這個 method），那麼中間那一大串（第二層 if-else）就會跳過，直接進入最後一段。
+
+最後一段的重點在於 `wgt.setFlexSize_()`。
+按照原本 widget.js 的寫法，真正影響 widget 寬度的，其實是 `widget.setFlexSize_()`。

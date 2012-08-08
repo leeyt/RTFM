@@ -1,0 +1,15 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div apply="org.zkoss.bind.BindComposer" 
+ viewModel="@id('vm') @init('org.zkoss.rtmf.vm.TriggerVM')">
+ 	<label value="@load(vm.index)" />	
+	<listbox id="lb" model="@init(vm.child)" selectedIndex="@bind(vm.index)">
+		<template name="model" var="foo">
+			<listitem label="@load(foo.name)"></listitem>
+		</template>
+	</listbox>
+	<button onClick="lb.setSelectedIndex(0)">goto 0</button>
+	<button onClick='@command("goto0")'>goto 0 (mvvm)</button>
+	
+</div>
+</zk>
