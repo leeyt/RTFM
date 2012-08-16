@@ -28,20 +28,22 @@ flex 機制
 主要是註冊 onSize（zFlex.onSize）、beforeSize（zFlex.beforeSize），
 因為 hflex="min" 會加跑 `listenOnFitSize_()`（反之則跑 `unlistenOnFitSize_()`）。
 
-*	this._nhflex = -65500
-*	註冊 listen
-	*	在 `_listenFlex()`，onSzie : zFlex.onSize
-	*	在 `_listenFlex()`，beforeSize : zFlex.beforeSize
-	*	在 `widget.listenOnFitSize()`，onFitSize : zFlex.onFitSize
+* this._nhflex = -65500
+* 註冊 listen
+	* 在 `_listenFlex()`，onSzie : zFlex.onSize
+	* 在 `_listenFlex()`，beforeSize : zFlex.beforeSize
+	* 在 `widget.listenOnFitSize()`，onFitSize : zFlex.onFitSize
 
 以實驗結果來看，會先執行
 
-1.	beforeSize
-1.	onFitSize→_fixMinHflex()→_fixMinVflex()
+1. beforeSize
+1. onFitSize→_fixMinHflex()→_fixMinVflex()
 	* 理論上跑完這個 method，大小會調整好
-1.	onSize→fixFlex
-	* 這個又臭又長的就不知道是在幹啥了......
+1. onSize→fixFlex
 
+### $n() ###
+與 `jq(subId)[0]` 等價，只是它會把回傳值存一份在 `this._subnodes[subId]` 當中。
+cleanCache() 可以清空。
 
 flex.js
 =======
