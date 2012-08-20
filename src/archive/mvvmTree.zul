@@ -1,0 +1,29 @@
+<?page title="Tree by MVVM" contentType="text/html;charset=UTF-8"?>
+<window width="500px" 
+ apply="org.zkoss.bind.BindComposer" 
+ viewModel="@id('vm') @init('org.zkoss.rtmf.vm.TreeVM')">
+	<tree model="@load(vm.treeModel)" selectedItem="@bind(vm.selectedProduct)">
+	 	<treecols>
+	 		<treecol label="id" />
+	 		<treecol label="name" />
+	 		<treecol label="category" />
+	 	</treecols>
+	 	<template name="model" var="foo">
+	 		<treeitem>
+	 			<treerow>
+	 				<treecell label="@load(foo.data.id)"></treecell>
+	 				<treecell label="@load(foo.data.name)"></treecell>
+	 				<treecell label="@load(foo.data.category)"></treecell>
+	 			</treerow>
+	 		</treeitem>
+	 	</template>
+	</tree>
+	<separator />
+	<grid>
+		<rows>
+			<row>ID: <label value="@load(vm.selectedProduct.data.id)" /></row>
+			<row>Name: <label value="@load(vm.selectedProduct.data.name)" /></row>
+			<row>Category: <label value="@load(vm.selectedProduct.data.category)" /></row>			
+		</rows>
+	</grid>
+</window>

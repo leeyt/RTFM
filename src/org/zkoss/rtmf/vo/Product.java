@@ -1,6 +1,16 @@
 package org.zkoss.rtmf.vo;
 
 public class Product {
+	private static int SERIAL = 0;
+	public synchronized static Product mock(){
+		Product result = new Product();
+		result.setId(""+SERIAL);
+		result.setCategory("category "+SERIAL);
+		result.setName("name "+SERIAL);
+		SERIAL++;
+		return result;
+	}
+	
 	private String id;
 	private String name;
 	private String category;
