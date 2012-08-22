@@ -1,8 +1,7 @@
 package org.zkoss.rtmf.vm;
 
-import java.util.ArrayList;
-
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.rtmf.MockData;
 import org.zkoss.rtmf.vo.Product;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;
@@ -20,19 +19,10 @@ public class TreeVM{
 	}
 
 	public DefaultTreeModel<Product> getTreeModel(){
-		DefaultTreeNode<Product> root = new DefaultTreeNode<Product>(null, mockNode(0));
-		DefaultTreeModel<Product> result = new DefaultTreeModel<Product>(root);
-		return result;
-	}
-	
-	private static ArrayList<DefaultTreeNode<Product>> mockNode(int level){	
-		ArrayList<DefaultTreeNode<Product>> result = new ArrayList<DefaultTreeNode<Product>>();
-		for(int i=0; i<3; i++){
-			if(Math.random() < Math.pow(0.5, level)){
-				DefaultTreeNode<Product> root = new DefaultTreeNode<Product>(Product.mock(), mockNode(level+1));
-				result.add(root);
-			}
-		}
+		DefaultTreeModel<Product> result = MockData.genTreeModel();
+		int[] path = {0};
+		result.addOpenPath(path);
+		result.addSelectionPath(path);		
 		return result;
 	}
 }
