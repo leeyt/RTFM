@@ -2,6 +2,13 @@
 
 ZUL
 ===
+### Listbox ###
+* 如果 item 很多，則還沒有顯示到的 item 內容會是空白，等捲到才會實際 render。
+	* 這跟 ROD 無關，啟動 ROD 是連 item 外頭的 `<tr><td>` 都不會 render。
+
+### Tabbox ###
+* `tabscroll` 屬性不是定義 `tabpanel` 可不可以滾（`tabpanel`：關我屁事），
+	而是 `tabs` 裡頭的 `tab` 太多的時候，到底是全部排出來，還是依寬度只顯示某幾個。（WTF......）
 
 Common Java
 ===========
