@@ -26,7 +26,7 @@ ZK Component Support
 反之，__如果沒有支援，即使用 CSS hacking 等方式讓它能滾動，在 tablet 上也不保證能滾動__，
 這點在將 project 轉換到 tablet 上時需要特別注意。
 
-下面這三個 component 預設是開啟處理 scrolling 行為：
+與 desktop 相同，下面這三個 component 預設是開啟處理 scrolling 行為：
 
 * Grid
 * Listbox
@@ -36,7 +36,7 @@ ZK Component Support
 
 	<listbox xmlns:ca="client/attribute" ca:data-scrollable="false" />
 
-下面這些 component 有支援 scrolling 功能，但是需要設定相關屬性才會開啟：
+與 desktop 相同，下面這些 component 有支援 scrolling 功能，但是需要設定相關屬性才會開啟：
 
 * (Borderlayout) Center, Ease, West, North, South: autoScroll="true"
 * Deteail(Grid), Groupbox, Window: contentStyle="overflow:auto"
@@ -66,9 +66,9 @@ Other Issues
 		</center>
 	</borderlayout>
 
-另外，tablet browser 本身也有 scrolling 的行為，像下面這段程式碼，
-雖然 `<div>` 沒有 scrolling 的功能，但仍然可以透過 browser 原生的 scrolling 行為，
-看到最下方的 footer。
+另外，tablet browser 本身也有 scrolling 的行為（在 iOS 5 以前需要用兩隻手指頭才有滾動效果），
+像下面這段程式碼，雖然 `<div>` 沒有 scrolling 的功能，
+但仍然可以透過 browser 原生的 scrolling 行為，看到最下方的 footer。
 
 	<zk>
 		<div style="background-color:green" width="100%" height="2000px" />
