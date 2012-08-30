@@ -2,6 +2,8 @@
 
 ZUL
 ===
+* 取得 browser 資訊：${zk}
+
 ### Listbox ###
 * 如果 item 很多，則還沒有顯示到的 item 內容會是空白，等捲到才會實際 render。
 	* 這跟 ROD 無關，啟動 ROD 是連 item 外頭的 `<tr><td>` 都不會 render。

@@ -1,24 +1,4 @@
-Scrolling
-=========
-
-Principle
----------
-* On tablet, container's size must smaller than it's content. 
-
-A true example
---------------
-* transfer a standard layout pattern to tablet.
-
-Component Support
------------------
-* enable
-	* Borderlayout : autoScroll
-	* Deteail(Grid), Groupbox, Window : contentStyle="overflow:auto"
-	* PanelChildren, Tabpanel :  style="overflow:auto"
-	* ScrollView
-	* scroll by browser
-* disable
-	* Grid, Listbox, Tree : (disable) xmlns:ca="client/attribute" ca:data-scrollable="false"
+> # Tablet Design Tip #
 
 雜項 tip
 --------
