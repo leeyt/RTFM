@@ -1,4 +1,4 @@
->	# Scrolling on Tablet #
+> # Scrolling on Tablet #
 
 Instruction
 ===========
@@ -6,6 +6,7 @@ Instruction
 最顯著的不同處在於 tablet 並不會出現 scroll bar。
 此外，tablet 沒有來自鍵盤或滑鼠的輸入訊號，
 取而代之的是以上下的 swipe 動作來代替捲動的行為。
+
 ZK 在 6.5 版針對這個特性做了許多強化，
 本篇文章以 tablet 上的 scrolling 為主軸，解釋其運作原理、使用方式，
 最後用一個範例講解從 desktop 轉換到 tablet 的要點提示。
@@ -49,7 +50,7 @@ ZK Component Support
 
 詳細細節請參閱《[ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference)》。
 
-另外 ZK 6.5 版提供 `ScrollView` 這個 container component，可以讓它的 content 變成可以滾動。
+另外 ZK 6.5 版提供 `ScrollView` 這個 container component，可以掛上任何 component 並提供滾動功能。
 詳情請參閱 [ScrollView Document](http://books.zkoss.org/wiki/ZK_Component_Reference/Tablet_Devices/Components/Scrollview)
 
 Other Issues
@@ -58,18 +59,20 @@ Other Issues
 那麼 swipe 的動作會在 child component 處理掉，而 parent 不會產生 scrolling 動作。
 像下面這段程式碼，使用者將無法看到 footer：
 
-<borderlayout height="100px">
-	<center autoscroll="true">
-		<div height="100px">
-			<listbox height="100px">
-				<listitem forEach="1,2,3,4,5">
-					<listcell label="${each}"></listcell>
-				</listitem>
-			</listbox>
-			<label>footer</label>
-		</div>
-	</center>
-</borderlayout>
+	<borderlayout height="100px">
+		<center autoscroll="true">
+			<div vflex="min">
+				<listbox height="100px">
+					<listitem forEach="1,2,3,4,5">
+						<listcell label="${each}"></listcell>
+					</listitem>
+				</listbox>
+				<label>footer</label>
+			</div>
+		</center>
+	</borderlayout>
+	
+![Scroll Issue 1](image/scrollIssue1.png)
 
 另外，tablet browser 本身也有 scrolling 的行為（在 iOS 5 以前需要用兩隻手指頭才有滾動效果），
 像下面這段程式碼，雖然 `<div>` 沒有 scrolling 的功能，
@@ -79,6 +82,8 @@ Other Issues
 		<div style="background-color:green" width="100%" height="2000px" />
 		<label>footer</label>
 	</zk>
+
+![Scroll Issue 2](image/scrollIssue2.png)
 
 Example
 =======
@@ -119,6 +124,8 @@ Wrong layout but can work
 在 desktop 上頭看到的 scrolling bar 是 bowser 對__整個頁面__產生的，
 所以到了 tablet 上，`Listbox` 會沒辦法滾動。
 
+![Scroll Example 1](image/scrollExample1.png)
+
 如果 `Listbox` 設定 `width="50%"` 會更清楚呈現出這個問題：左半邊 `Listbox` 是無法滾動的，而如果對右半邊空白處作 swipe 動作，則__整個頁面__ 會跟著滾動，也就可以看到 `Listbox` 的其他資料。
 
 那麼，原來的程式碼要怎麼修改才能在 tablet 上頭運作正常呢？
@@ -153,6 +160,8 @@ Solution
 	</tabbox>
 </window>
 
+![Scroll Example 2](image/scrollExample2.png)
+
 另外一種視覺上等價的方式，是讓 `inner` 這個 `Window` 負責滾動，
 所以移除 `Listbox` 的 `vflex`，讓它有完整的高度，
 然後設定為不能滾動，讓底層的 Window 可以接收到 scrolling 的 event。
@@ -178,6 +187,8 @@ Solution
 			</tabpanel></tabpanels>
 		</tabbox>
 	</window>
+
+![Scroll Example 3](image/scrollExample3.png)
 
 Conclusion
 ==========
