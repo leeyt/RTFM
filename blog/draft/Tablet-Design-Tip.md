@@ -1,17 +1,35 @@
 > # Tablet Design Tip #
 
-雜項 tip
---------
-* parent 跟 child 最好只允許一個可以滾動
-* `TextArea`（`Textbox` 的 `multiline="true"`） 的 scroll 不是 ZK 控制的，所以底層最好不要可以滾動
+Different Operation
+-------------------
+* Different input style
+	* Datebox
+	* Combobox
+	* Colorbox
+* Different Mouse Event
+* no onMouseOver
+	* can't provide tooltip.
+* right click => long push the screen
+	* focus issue
+* onMouseMove will occur scrolling in some case.
 
-Other issue
-===========
+Orientation change
+------------------
+* use `onClientInfo`, get ClientInfoEvent and call `getOrientation()` or `isVertical()`
 
 Mold Support
 ------------
 * provide a table or a list like http://books.zkoss.org/wiki/ZK_Component_Reference/Tablet_Devices/Unsupported_Molds
 
+Other Scrolling Issue
+---------------------
+* basic principle in [Scrolling on Tablet](Tablet-Scrolling.md)
+* If parent component and it's children are scrollable, choose only one enable scrolling.
+	* Scroll bar of `TextArea`（with `multiline="true"`） is not provided by ZK, 
+	  so suggest disable it's parent's scrolling 
+
 As Simple as Possible
 ---------------------
+* limit by screen size and operation
+	* some component(like `Button` is bigger for better UX)
 * render speed issue
