@@ -27,7 +27,9 @@ Other Scrolling Issue
 * If parent component and it's children are scrollable, choose only one enable scrolling.
 	* Scroll bar of `TextArea`（with `multiline="true"`） is not provided by ZK, 
 	  so suggest disable it's parent's scrolling 
-
+* Enable `<custom-attributes org.zkoss.zul.image.preload="true"/>`
+	* `<image>` without height/width will occur scroll bar wrong.
+	
 As Simple as Possible
 ---------------------
 * limit by screen size and operation
