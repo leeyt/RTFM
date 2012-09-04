@@ -9,9 +9,11 @@ Different Operation
 * Different Mouse Event
 * no onMouseOver
 	* can't provide tooltip.
-* right click => long push the screen
+	* no `autodrop` for some component
+* right click => touch on the component for one second
 	* focus issue
 * onMouseMove will occur scrolling in some case.
+* no upload, flash, 
 
 Orientation change
 ------------------
@@ -29,6 +31,8 @@ Other Scrolling Issue
 	  so suggest disable it's parent's scrolling 
 * Enable `<custom-attributes org.zkoss.zul.image.preload="true"/>`
 	* `<image>` without height/width will occur scroll bar wrong.
+* Does not suggest use `rows` in `<listbox>`, `<tree>` and `<grid>`,
+  end-user can't identify it can scroll or not.
 	
 As Simple as Possible
 ---------------------

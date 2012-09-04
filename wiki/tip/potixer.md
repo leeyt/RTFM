@@ -14,6 +14,22 @@ ZK
 
 在 `foo` 當中可以用 `this.$class.fooValue` 存取
 
+jsdoc
+-----
+步驟：
+1. `./build jsdoc zk zul ../zkcml/zkex ../zkcml/zkmax;`
+	* 會把相關的 .js 轉換成（假的） .java 檔
+1. `./build doc jsdoc;`
+	* 透過上一個步驟產生的（假的） .java 檔來吐出 javadoc
+
+### 除錯 tip ###
+* class 前頭（`foo.FooName = zk.$extends(zk.Object, {}`）前頭一定要有 javadoc comment block，
+  不然步驟 1 就不會產生對應的 .java 檔、步驟 2 就會炸找不到 `FooName` 的錯誤。
+* `$define` 當中 setter 的 `@param` 一定要記得給 data type，
+  不然會被當成 getter 然後炸重複宣告的 error
+* `@return` 打成 `@returns` 居然 Eclipse 跟 `./build jsdoc` 都照吃，
+   然後在步驟 2 會把多的那個 s 當成 return 值的 data type... （WTF）
+
 ZUL、EL
 ======
 * `${zk}` 的來源（應該）是 `Servlets.java` 的 `browserInfo()` 

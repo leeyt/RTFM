@@ -19,3 +19,8 @@ Common Java
 * `Objects.equals()` 比對值是否相等，減少判斷 null 以及一些其他小細節的困擾。
 * `Clients` 有許多 method 可以從 server side 要求 client side 作一些事情。包含偉大萬惡的 `Clients.evalJAvaScript()`（真xx的幹得好啊 XD）
 
+### Tabelt ###
+* 在 .java 當中判斷是不是 tablet。第一行的條件必須滿足，正常情況（VM、Model）應該都取得到。
+
+	ServletRequest request = ServletFns.getCurrentRequest();
+	mobile = Servlets.getBrowser(request, "mobile") != null;
