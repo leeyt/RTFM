@@ -1,4 +1,4 @@
-### 在 ZK Studio 測試 zul.xsd ###
+ load MockServer### 在 ZK Studio 測試 zul.xsd ###
 * Preferences→ZK→ZUL Editor：把 Use plugin build-in zul.xsd 取消
 * Preferences→XML→XML Category，增加一個 User Specified Entries
 	* Location：`zul/src/archive/metainfo/xml/zul.xsd`（File System 也可以啦）
@@ -20,3 +20,6 @@
 * 每次修改 `zul.xsd` 之後，要關掉 `foo.xml`、重新開啟後（理論上）才會 load 到新的 `zul.xsd`。
 
 [ref: 沒有 ZK Studio 的設定方式](http://books.zkoss.org/wiki/ZK_Installation_Guide/Setting_up_IDE/Eclipse_without_ZK_Studio)
+
+### 缺少這些東西 ###
+* template 應該到處都要出得來

@@ -5,6 +5,7 @@ JavaScript
 ==========
 ZK
 --
+### zk.Object 相關 ###
 	foo = zk.$extends(zk.Object, {
 		//instance method/field
 	},{
@@ -13,6 +14,9 @@ ZK
 	}
 
 在 `foo` 當中可以用 `this.$class.fooValue` 存取
+
+### Event 相關 ###
+`new zk.Event(widget, name, data, opt)`：`data` 是回傳到 server side 的（不過 client 還是取得到 XD）
 
 jsdoc
 -----
@@ -29,6 +33,14 @@ jsdoc
   不然會被當成 getter 然後炸重複宣告的 error
 * `@return` 打成 `@returns` 居然 Eclipse 跟 `./build jsdoc` 都照吃，
    然後在步驟 2 會把多的那個 s 當成 return 值的 data type... （WTF）
+
+swipe
+-----
+主要邏輯在 ZK 的 zswipe.js（當然 widget.js 也有）
+
+widget 的 `_swipe` 通常在 `bindSwipe_()` 當中設定，`_swipe` 會決定 `doSwipe_(evnt)` 的 `evnt.opts.dir` 的值。
+簡單地說，就是決定到底是上下左右哪一個（`zswipe.js` 的 `_swipeEnd()`），而不是決定 swipe event 發不發。
+也就是說，無論 `_swipe` 怎麼設定，`doSwipe_()` 還是會呼叫到。
 
 ZUL、EL
 ======

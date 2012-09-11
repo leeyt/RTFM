@@ -6,7 +6,6 @@ CSS
 --------
 在 iPhone(4s) 上，發現一個文字會莫名變大的問題，詳情參閱[這篇文章](../../blog/TextSizeIssueOnIphone.md)
 
-
 focus
 -----
 在 Android 4.1 的 native browser，如果（JS）用
