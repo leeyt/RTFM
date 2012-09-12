@@ -1,8 +1,8 @@
-package org.zkoss.rtmf;
+package org.zkoss.rtfm;
 
 import java.util.ArrayList;
 
-import org.zkoss.rtmf.vo.Product;
+import org.zkoss.rtfm.vo.Product;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;
 

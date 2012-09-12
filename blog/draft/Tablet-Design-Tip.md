@@ -33,6 +33,8 @@ Other Scrolling Issue
 	* `<image>` without height/width will occur scroll bar wrong.
 * Does not suggest use `rows` in `<listbox>`, `<tree>` and `<grid>`,
   end-user can't identify it can scroll or not.
+* 當 Listbox/Grid/Tree 內容太多時，要考慮讓他來負責滾動、而不是由 parent 來滾動
+	* rod 與 iscroll 效率問題
 	
 As Simple as Possible
 ---------------------

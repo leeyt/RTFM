@@ -1,4 +1,4 @@
-> # Iphone 遇到文字突然變大的問題 #
+> # iPhone 上文字意外變大的問題 #
 
 這是在作 [ZKForumViewer] 遇到的問題。精簡後程式碼如下
 
@@ -125,5 +125,21 @@
 加上 child element 的 `white-space: nowrap` 會導致 render 失常的現象。
 
 於是瀏覽器差異的歷史，又這樣增加了新的一頁...... \[核爆]
+
+### Update ###
+後來又再度炸一次字體突然變大的問題，這次是 `.z-html`，它的值最終會長這樣：
+
+	.z-html{
+		font-size: 13px;
+		display: inline-block;
+		white-space: pre-wrap; 
+		word-wrap:break-word;
+		word-break:break-all;
+	}
+
+目前還沒有重新在純 HTML 上重現一次，不過如果將 `display: inline-block;` 改成 `display: inline` 就正常了。
+連同原本的 case 一起看，<strike>兇手</strike>共通點就是 `display: inline-block;`，似乎以後可以優先懷疑這一個。
+
+至於為什麼 `.z-html` 要加 `display: inline-block` 呢？詳情請參閱[這篇文章](../../wiki/tip/browser.md)的 __span__ 段落。
 
 [ZKForumViewer]: https://github.com/MontyPan/ZKForumViewer

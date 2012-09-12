@@ -1,5 +1,5 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
-<?component name="email" extends="textbox" class="org.zkoss.rtmf.composite.Email" ?>
+<?component name="email" extends="textbox" class="org.zkoss.rtfm.composite.Email" ?>
 <zk>
 <email id="foo" category="categoryValue" element="elementValue"/>
 <button onClick='alert(foo.getCategory()+"\n"+foo.getElement())'>show attribute</button>

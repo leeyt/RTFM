@@ -1,9 +1,9 @@
-package org.zkoss.rtmf.vm;
+package org.zkoss.rtfm.vm;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.zkoss.rtmf.vo.Product;
+import org.zkoss.rtfm.vo.Product;
 
 public class DynamicGridVM {
 	public ArrayList<ArrayList<String>> getData() {

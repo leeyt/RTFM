@@ -1,4 +1,4 @@
-package org.zkoss.rtmf.vo;
+package org.zkoss.rtfm.vo;
 
 public class Product {
 	private static int SERIAL = 0;
@@ -14,6 +14,8 @@ public class Product {
 	private String id;
 	private String name;
 	private String category;
+	private boolean flag;
+	
 	public String getId() {
 		return id;
 	}
@@ -31,5 +33,11 @@ public class Product {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public boolean isFlag() {
+		return flag;
+	}
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 }

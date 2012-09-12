@@ -1,7 +1,7 @@
-package org.zkoss.rtmf.mvc;
+package org.zkoss.rtfm.mvc;
 
-import org.zkoss.rtmf.MockData;
-import org.zkoss.rtmf.vo.Product;
+import org.zkoss.rtfm.MockData;
+import org.zkoss.rtfm.vo.Product;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;

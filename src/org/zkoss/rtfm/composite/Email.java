@@ -1,4 +1,4 @@
-package org.zkoss.rtmf.composite;
+package org.zkoss.rtfm.composite;
 
 import org.zkoss.zk.ui.IdSpace;
 import org.zkoss.zul.Textbox;

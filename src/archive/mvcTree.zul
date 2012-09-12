@@ -1,42 +1,6 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<div apply="org.zkoss.rtmf.mvc.TreeCtrl">
+	<div apply="org.zkoss.rtfm.mvc.TreeCtrl">
 		<tree checkmark="true" id="treeMVC" />
 	</div>
-	
-	<separator bar="true" height="20px"/>
-	
-	<div 
-	 apply="org.zkoss.bind.BindComposer" 
-	 viewModel="@id('vm') @init('org.zkoss.rtmf.vm.TreeVM')">
-		<tree checkmark="true" model="@load(vm.treeModel)">
-		 	<template name="model" var="foo">
-		 		<treeitem>
-		 			<treerow>
-		 				<treecell label="@load(foo.data.id)"></treecell>
-		 				<treecell label="@load(foo.data.name)"></treecell>
-		 				<treecell label="@load(foo.data.category)"></treecell>
-		 			</treerow>
-		 		</treeitem>
-		 	</template>
-		</tree>
-	</div>	
-
-	<separator bar="true" height="20px"/>
-	
-	<div 
-	 apply="org.zkoss.bind.BindComposer" 
-	 viewModel="@id('vm') @init('org.zkoss.rtmf.vm.TreeVM')">
-		<tree checkmark="true" model="@load(vm.treeModel)" selectedItem="@bind(vm.selectedProduct)">
-		 	<template name="model" var="foo">
-		 		<treeitem>
-		 			<treerow>
-		 				<treecell label="@load(foo.data.id)"></treecell>
-		 				<treecell label="@load(foo.data.name)"></treecell>
-		 				<treecell label="@load(foo.data.category)"></treecell>
-		 			</treerow>
-		 		</treeitem>
-		 	</template>
-		</tree>
-	</div>	
 </zk>

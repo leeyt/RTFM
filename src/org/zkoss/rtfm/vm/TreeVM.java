@@ -1,8 +1,8 @@
-package org.zkoss.rtmf.vm;
+package org.zkoss.rtfm.vm;
 
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.rtmf.MockData;
-import org.zkoss.rtmf.vo.Product;
+import org.zkoss.rtfm.MockData;
+import org.zkoss.rtfm.vo.Product;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;
 
