@@ -1,7 +1,7 @@
 > # Scrolling on Tablet #
 
 Instruction
-===========
+-----------
 以網頁的視覺效果來說，tablet 與 desktop 
 最顯著的不同處在於 tablet 並不會出現 scroll bar。
 此外，tablet 沒有來自鍵盤或滑鼠的輸入訊號，
@@ -12,7 +12,7 @@ ZK 在 6.5 版針對這個特性做了許多強化，
 最後用一個範例講解從 desktop 轉換到 tablet 的要點提示。
 
 Principle
-=========
+---------
 ![scroll diagram](image/scrollDiagram.png)
 
 scroll bar 會產生，是因為 container 的高度比 content 的高度小，
@@ -23,7 +23,7 @@ scroll bar 會產生，是因為 container 的高度比 content 的高度小，
 並將 swipe 動作轉換成 scrolling 行為。
 
 ZK Component Support
-====================
+--------------------
 單純看「是否能滾動」，ZK component 在 tablet 與 desktop 是沒有差別的。
 如果 component 原本就有支援滾動的功能，那麼在 tablet 上也有支援。
 反之，__如果沒有支援，即使用 CSS hacking 等方式讓它能滾動，在 tablet 上也不保證能滾動__，
@@ -43,7 +43,7 @@ ZK Component Support
 
 * (Borderlayout) Center, East, West, North, South
 	* `autoScroll="true"`
-* Groupbox, Window, Deteail(Grid)
+* Groupbox, Window
 	* `contentStyle="overflow:auto"`
 * PanelChildren, Tabpanel
 	* `style="overflow:auto"`
@@ -53,8 +53,7 @@ ZK Component Support
 另外 ZK 6.5 版提供 `ScrollView` 這個 container component，可以掛上任何 component 並提供滾動功能。
 詳情請參閱 [ScrollView Document](http://books.zkoss.org/wiki/ZK_Component_Reference/Tablet_Devices/Components/Scrollview)
 
-Other Issues
-------------
+### Other Issues ###
 如果 parent component 跟 child component 都支援 scrolling，
 那麼 swipe 的動作會在 child component 處理掉，而 parent 不會產生 scrolling 動作。
 像下面這段程式碼，使用者將無法看到 footer：
@@ -86,12 +85,11 @@ Other Issues
 ![Scroll Issue 2](image/scrollIssue2.png)
 
 Example
-=======
+-------
 接下來我們將實際分析一個範例，讓 developer 更能掌握 ZK component 的 scrolling 運作方式，
 且能輕鬆地轉換既有的程式碼、使其能在 Tablet 上正常運作。
 
-Wrong layout but can work
--------------------------
+### Wrong layout but can work ###
 首先看一下這段程式碼：
 
 <window id="root">
@@ -132,8 +130,7 @@ Wrong layout but can work
 當然，最簡單的方式是將 `Listbox` 設定一個固定高度；
 但是如果要作到 flexible 的 layout 要怎麼作呢？
 
-Solution
---------
+### Solution ###
 首先，得讓 `Listbox` 的 parent 們都有明確的高度限制，
 所以兩個 `Window` 與 `Tabbox` 都加上 `height="100%"` 的屬性。
 然後對 `Listbox` 設定 `vflex="1"` 的屬性，讓 ZK 去計算 `Listbox` 最後的高度。
@@ -191,7 +188,7 @@ Solution
 ![Scroll Example 3](image/scrollExample3.png)
 
 Conclusion
-==========
+----------
 平心而論，scrolling 機制在 desktop 與 tablet 上並沒有那麼大的差異。
 過去在 desktop 上即使寫出不太正確的 layout，也不會產生嚴重的操作障礙，
 而在 tablet 上會將這些誤用之處給凸顯出來。
@@ -199,6 +196,6 @@ Conclusion
 相信可以大幅降低從 desktop 程式轉換到 tablet 的困擾與成本。
 
 Reference
-=========
+---------
 * http://books.zkoss.org/wiki/ZK_Developer's_Reference/UI_Patterns/Hflex_and_Vflex
 * http://books.zkoss.org/wiki/ZK_Component_Reference/Tablet_Devices

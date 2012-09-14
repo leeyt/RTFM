@@ -1,16 +1,16 @@
 > # Cardlayout：用 Swipe 來切換 view #
 
 簡介
-======
+----
 我們在 ZK 6.5 版提供了一個新的 component *Cardlayout* ，讓使用者可以像操作卡片一樣在 component 之間切換。
 在 Tablet 上還支援用 swipe 動作來改變畫面。
 
 Live Demo
-=========
+---------
 <video>
 
 Implement
-=========
+---------
 使用上就像 `HBox`、`Hlyout` 一樣，Developer 可以將任何 Component 加到 Cardlayout 下。
 `selectedIndex` 會決定當下要顯示哪一個 component、`previous()` 與 `next()` 會改變 `selectedIndex` 的值然後切換畫面。
 
