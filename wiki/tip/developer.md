@@ -3,6 +3,22 @@
 ZUL
 ===
 * 取得 browser 資訊：`${zk}`
+* `&#36;`→$
+
+Tablet
+------
+下面這段程式碼會產生異常
+
+	<window contentStyle="overflow:auto" height="500px">
+		<listbox vflex="1">
+			<!-- 後略 -->
+
+以運作邏輯來說，`Window` 的 iScroll 會以 `Listbox` 的高度來判斷，而這時 `Listbox` 的高度是根據內容數量而決定。
+等到 `Listbox` 要作 `vflex="1"` 時，會回頭去要 `Window` 的高度。
+所以結果就是 `Listbox` 完全沒辦法滾，因為無論 `Listbox` 還是 `Window` 的大小都跟 `Listbox` 原本該有的高度一樣高。
+
+結論就是 `Listbox` 拿掉 `vflex="1"`、或是給定高度，亦或是 `Window` 的 `contentStyle="overflow:auto"`。
+其他 use case 基本上都跟 vflex="1" 的原意衝突（有空待補）
 
 MVVM
 ----

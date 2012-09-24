@@ -9,6 +9,12 @@ JavaScript
 
 ZK
 --
+### zk.Widget ###
+* `onSize()` 是由 ZK 底層呼叫的，所以執行時 `this.desktop()` 一定有值，
+  不過如果裡頭包了 `setTimeout()` 就不能保證 timeout 之後 `this.desktop()` 還會有值，
+  因為有可能該 widget 剛好 detach 了。
+* `this.desktop` 就一定有 this.$n()、也就是 dom element 已經長好了
+
 ### zk.Object 相關 ###
 	foo = zk.$extends(zk.Object, {
 		//instance method/field

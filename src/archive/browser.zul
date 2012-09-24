@@ -1,0 +1,27 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<grid width="500px">
+	<rows>
+		<row>
+			<label>$ {zk}</label>
+			<label value="${zk}" />
+		</row>
+		<row>
+			<label>$ {zk.browser}</label>
+			<label value="${zk.browser}" />
+		</row>		
+		<row>
+			<label>$ {zk.mobile}</label>
+			<label value="${zk.mobile}" />
+		</row>
+		<row>
+			<label>$ {zk}</label>
+			<label value="${zk.iphone}" />
+		</row>
+		<row>
+			<label>$ {zk}</label>
+			<label value="${zk.ios}" />
+		</row>
+	</rows>
+</grid>
+</zk>
