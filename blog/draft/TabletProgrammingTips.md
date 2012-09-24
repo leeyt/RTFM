@@ -13,6 +13,9 @@ Different Style
 ZK 也根據這樣的思維將相關 component 做了一系列的調整，讓 developer 可以直接拿來在 Tablet 上使用。
 例如 `Combobox`、`Timebox`、`Colorbox`，詳情請參閱 [Component Reference/Tablet Devices/Ui Enhancements]。
 
+btw, 如果你要讓 `Image` 或是 `Div` 在 tablet 上可以被 click，
+你必須自己在 `sclass` 或是 `style` 中加上 `cursor: pointer;`，Tablet 上的 browser 才會觸發 `onClick` 事件。
+
 [Component Reference/Tablet Devices/Ui Enhancements]: http://books.zkoss.org/wiki/ZK_Component_Reference/Tablet_Devices/UI_Enhancements
 
 ### Mold Unsupport ###
